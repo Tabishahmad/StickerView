@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.support.v4.view.MotionEventCompat;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -19,6 +18,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+
+import androidx.core.view.MotionEventCompat;
 
 import com.example.abner.stickerdemo.R;
 import com.example.abner.stickerdemo.model.BubblePropertyModel;

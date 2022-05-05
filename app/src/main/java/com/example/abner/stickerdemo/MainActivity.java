@@ -5,12 +5,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.abner.stickerdemo.utils.FileUtils;
 import com.example.abner.stickerdemo.view.BubbleInputDialog;
@@ -22,16 +23,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //气泡输入框
+    //bubble input box
     private BubbleInputDialog mBubbleInputDialog;
 
-    //当前处于编辑状态的贴纸
+    //Sticker currently in editing state
     private StickerView mCurrentView;
 
-    //当前处于编辑状态的气泡
+    //The currently edited bubble
     private BubbleTextView mCurrentEditTextView;
 
-    //存储贴纸列表
+    //Store a list of stickers
     private ArrayList<View> mViews;
 
     private RelativeLayout mContentRootView;
@@ -47,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContentRootView = (RelativeLayout) findViewById(R.id.rl_content_root);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setActionBar(toolbar);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -109,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //添加表情
+    //Add emoji
     private void addStickerView() {
         final StickerView stickerView = new StickerView(this);
-        stickerView.setImageResource(R.mipmap.ic_cat);
+        stickerView.setImageResource(R.mipmap.img_sticker);
         stickerView.setOperationListener(new StickerView.OperationListener() {
             @Override
             public void onDeleteClick() {
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         setCurrentEdit(stickerView);
     }
 
-    //添加气泡
+    //Add bubbles
     private void addBubble() {
         final BubbleTextView bubbleTextView = new BubbleTextView(this,
                 Color.WHITE, 0);
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置当前处于编辑模式的贴纸
+     * Set the sticker currently in edit mode
      */
     private void setCurrentEdit(StickerView stickerView) {
         if (mCurrentView != null) {
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置当前处于编辑模式的气泡
+     * Sets the bubble currently in edit mode
      */
     private void setCurrentEdit(BubbleTextView bubbleTextView) {
         if (mCurrentView != null) {

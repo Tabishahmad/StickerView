@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_main"
     tools:context=".MainActivity"
     android:id="@+id/rl_content_root"
-    android:background="@mipmap/ic_background"
+    android:background="@mipmap/dummy"
     >
 
 

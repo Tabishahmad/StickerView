@@ -8,12 +8,13 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+
+import androidx.core.view.MotionEventCompat;
 
 import com.example.abner.stickerdemo.R;
 import com.example.abner.stickerdemo.model.StickerPropertyModel;
@@ -273,14 +274,14 @@ public class StickerView extends ImageView {
                     midPointToStartPoint(event);
                     lastLength = diagonalLength(event);
                 } else if (isInButton(event, dst_flipV)) {
-                    //水平镜像
+                    //Horizontal mirror
                     PointF localPointF = new PointF();
                     midDiagonalPoint(localPointF);
                     matrix.postScale(-1.0F, 1.0F, localPointF.x, localPointF.y);
                     isHorizonMirror = !isHorizonMirror;
                     invalidate();
                 } else if (isInButton(event, dst_top)) {
-                    //置顶
+                    //top
                     bringToFront();
                     if (operationListener != null) {
                         operationListener.onTop(this);
@@ -305,7 +306,7 @@ public class StickerView extends ImageView {
                 isInResize = false;
                 break;
             case MotionEvent.ACTION_MOVE:
-                //双指缩放
+                //Pinch to zoom
                 if (isPointerDown) {
                     float scale;
                     float disNew = spacing(event);
